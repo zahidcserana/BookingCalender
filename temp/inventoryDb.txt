@@ -1,0 +1,97 @@
+create table customers(
+    customer_id int(11),
+    customer_details varchar(45),
+    primary key(customer_id)
+);
+
+create table orders(
+  order_id int(11),
+  customer_id int(11),
+  order_details varchar(45),
+  primary key(order_id ),
+  foreign key(customer_id ) references customers(customer_id)
+);
+
+create table products(
+   product_id int(11),
+   product_details varchar(45),
+   primary key(product_id )
+);
+
+create table order_products(
+   order_id int(11),
+   product_id int(11),
+   quantity_ordered double,
+   primary key(order_id ,product_id )
+ );
+
+
+create table components(
+   component_id int(11),
+   average_weekly_useage int(11),
+   reorder_lavel int(11),
+   reorder_quantity int(11),
+   primary key(component_id )
+);
+
+create table componet_suppliers(
+  component_id int(11),
+  supplier_id int(11),
+  primary key (component_id ,supplier_id )
+);
+
+create table suppliers(
+  supplier_id int(11),
+  supplier_details varchar(45),
+  primary key(supplier_id )
+);
+
+create table product_components(
+  product_id int(11),
+  component_id int(11),
+  quantity_used int(11),
+  primary key(product_id ,component_id )
+);
+
+create table component_inventory_levels(
+  inventory_level_id int(11),
+  component_id int(11),
+  inventory_id int(11),
+  uom_code varchar(45),
+  quantity_stack int(11),
+ primary key(inventory_level_id )
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
